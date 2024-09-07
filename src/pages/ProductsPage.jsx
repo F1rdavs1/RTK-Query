@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import {  useAddProductMutation,  useDeleteProductMutation, useGetProductsQuery, useUpdateProductMutation } from "../api/apiSlice";
+import {
+  useAddProductMutation,
+  useDeleteProductMutation,
+  useGetProductsQuery,
+  useUpdateProductMutation,
+} from "../api/Api";
 
 const ProductPage = () => {
   const { data: products, isLoading } = useGetProductsQuery();
@@ -40,7 +45,7 @@ const ProductPage = () => {
   return (
     <div className="bg-[#E3E9FF] h-[100vh] text-center pt-[30px]">
       <h1 className="text-white mb-[10px] text-[20px] bg-[#AF7EEB] w-[500px] py-[10px] mx-auto font-mono">
-        products Todo
+        Products Todo
       </h1>
       <form className="flex flex-col border-b-[4px] justify-center mx-auto w-[500px]">
         <input
@@ -50,7 +55,7 @@ const ProductPage = () => {
           onChange={(e) => setNewProduct(e.target.value)}
         />
         <button className="hidden" onClick={handleAddProduct}>
-          products qo'shish
+          Products Add
         </button>
       </form>
       <ul className="w-[500px] mx-auto bg-[white] py-[40px]">
@@ -82,12 +87,12 @@ const ProductPage = () => {
 
       <Modal
         className={
-          "w-[600px] h-[230px] rounded-[20px] mt-[40px] pt-[40px] text-center font-mono bg-slate-600 mx-auto"
+          "w-[600px] h-[230px] rounded-[20px] mt-[90px] pt-[40px] text-center font-mono bg-slate-600 mx-auto"
         }
         isOpen={isModalOpen}
         onRequestClose={closeModal}
       >
-        <h2 className="text-[20px] mb-[4px] text-white">Update products</h2>
+        <h2 className="text-[20px] mb-[4px] text-white">Update product</h2>
         <form>
           <input
             className="py-[6px] text-[17px] pl-[4px]"

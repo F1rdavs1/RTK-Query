@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { useAddUserMutation, useDeleteUserMutation, useGetUsersQuery, useUpdateUserMutation } from "../api/apiSlice";
+import {
+  useAddUserMutation,
+  useDeleteUserMutation,
+  useGetUsersQuery,
+  useUpdateUserMutation,
+} from "../api/Api";
 
 const UsersPage = () => {
   const { data: users, isLoading } = useGetUsersQuery();
@@ -16,7 +21,7 @@ const UsersPage = () => {
   if (isLoading) return <p>Loading...</p>;
 
   const handleAddUser = async (e) => {
-    e.preventDefault(); // Formani yuborishdan keyin sahifa yangilanishini to'xtatish
+    e.preventDefault(); 
     await addUser({ name: newUser });
     setNewUser("");
   };
@@ -43,18 +48,26 @@ const UsersPage = () => {
       <h1 className="text-white mb-[10px] text-[20px] bg-[#AF7EEB] w-[500px] py-[10px] mx-auto font-mono">
         Users Todo
       </h1>
-      <form className="flex flex-col border-b-[4px] justify-center mx-auto w-[500px]" onSubmit={handleAddUser}>
+      <form
+        className="flex flex-col border-b-[4px] justify-center mx-auto w-[500px]"
+        onSubmit={handleAddUser}
+      >
         <input
           className="outline-none w-[100%] py-[10px] border-[red] text-[20px] pl-[10px] font-mono bg-[white] font-semibold text-[green] placeholder-gray-700"
           placeholder="Enter users"
           value={newUser}
           onChange={(e) => setNewUser(e.target.value)}
         />
-        <button className="hidden" type="submit">Add User</button> {/* type="submit" to'g'ri ishlaydi */}
+        <button className="hidden" type="submit">
+          Add User
+        </button>{" "}
       </form>
       <ul className="w-[500px] mx-auto bg-[white] py-[40px]">
         {users.map((item, index) => (
-          <li key={item.id} className="flex justify-between items-center px-[20px] py-[5px]">
+          <li
+            key={item.id}
+            className="flex justify-between items-center px-[20px] py-[5px]"
+          >
             <span className="font-medium text-[18px] font-mono">
               {index + 1}. {item.name}
             </span>
@@ -77,7 +90,7 @@ const UsersPage = () => {
       </ul>
 
       <Modal
-        className="w-[600px] h-[230px] rounded-[20px] mt-[40px] pt-[40px] text-center font-mono bg-slate-600 mx-auto"
+        className="w-[600px] h-[230px] rounded-[20px] mt-[90px] pt-[40px] text-center font-mono bg-slate-600 mx-auto"
         isOpen={isModalOpen}
         onRequestClose={closeModal}
       >

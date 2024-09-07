@@ -23,7 +23,7 @@ function Navbar() {
             MUI
           </Typography>
           <div className='space-x-1'>
-            <NavLink className={'text-[18px] font-normal px-[10px] py-[3px] rounded-md duration-300'} to={'/'}>Home</NavLink>
+            <NavLink className={'text-[18px] font-normal px-[10px] py-[3px] rounded-md duration-300'} to={'/'}>User</NavLink>
             <NavLink className={'text-[18px] font-normal px-[10px] py-[3px] rounded-md duration-300'} to={'/car'}>Car</NavLink>
             <NavLink className={'text-[18px] font-normal px-[10px] py-[3px] rounded-md duration-300'} to={'/products'}>About</NavLink>
           </div>

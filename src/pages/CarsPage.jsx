@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { useAddCarMutation, useDeleteCarMutation, useGetCarsQuery, useUpdateCarMutation } from "../api/apiSlice";
+import {
+  useAddCarMutation,
+  useDeleteCarMutation,
+  useGetCarsQuery,
+  useUpdateCarMutation,
+} from "../api/Api";
 
 const CarsPage = () => {
   const { data: cars, isLoading } = useGetCarsQuery();
@@ -50,7 +55,7 @@ const CarsPage = () => {
           onChange={(e) => setNewCar(e.target.value)}
         />
         <button className="hidden" onClick={handleAddCars}>
-          cars qo'shish
+          Сars add
         </button>
       </form>
       <ul className="w-[500px] mx-auto bg-[white] py-[40px]">
@@ -82,12 +87,12 @@ const CarsPage = () => {
 
       <Modal
         className={
-          "w-[600px] h-[230px] rounded-[20px] mt-[40px] pt-[40px] text-center font-mono bg-slate-600 mx-auto"
+          "w-[600px] h-[230px] rounded-[20px] mt-[90px] pt-[40px] text-center font-mono bg-slate-600 mx-auto"
         }
         isOpen={isModalOpen}
         onRequestClose={closeModal}
       >
-        <h2 className="text-[20px] mb-[4px] text-white">Update cars</h2>
+        <h2 className="text-[20px] mb-[4px] text-white">Update car</h2>
         <form>
           <input
             className="py-[6px] text-[17px] pl-[4px]"
